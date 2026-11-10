@@ -1,0 +1,31 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.prabhacreations.democlinic'
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.prabhacreations.democlinic"
+        minSdk 24
+        targetSdk 34
+        versionCode 11
+        versionName "1.1"
+    }
+    signingConfigs {
+        demo {
+            storeFile file('democlinic.jks')
+            storePassword 'o1RDzIGGGaciUZUZ'
+            keyAlias 'democlinic'
+            keyPassword 'o1RDzIGGGaciUZUZ'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.demo
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+dependencies { implementation 'androidx.core:core:1.13.1' }
